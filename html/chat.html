@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat de conversa</title>
+    <link rel="stylesheet" href="../css/chat_style.css">
+</head>
+<body>
+    <!--Lado direito-->
+    <div class="sidebar">
+        <h2>Chats Recentes</h2>
+        <ul>
+            <li>Chat Português</li>
+            <li>+ Nova conversa</li>
+        </ul>
+        <h3>Hoje</h3>
+        <ul>
+            <li>Nenhuma conversa</li>
+            <li></li>
+        </ul>
+        <h3>Dias anteriores</h3>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!--Lado esquerdo-->
+    <div class="main">
+        <h1>Em que posso ajudar?</h1>
+        <div class="chat-input">
+            <input type="text" placeholder="Envie a sua mensagem">
+            <button onclick="sendMessage()">enviar</button>
+        </div>
+        <div class="options">
+            <button>Eliminar mensagem </button> 
+            <button>Analisar dados</button>
+            <button>Extraír conversa</button>
+            <button>Dá-me aconselhamento</button>
+            <button>Mais opções</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function sendMessage() {
+    alert("Mensagem enviada!");
+}
+
+    </script>
+</body>
+</html>
