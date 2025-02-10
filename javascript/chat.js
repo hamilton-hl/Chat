@@ -1,51 +1,30 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const newChatButton = document.getElementById('newChatButton');
-    const conversations = document.querySelectorAll('.conversation');
-    const chatInput = document.getElementById('chatInput');
-    const sendButton = document.getElementById('sendButton');
-    const chatMessages = document.querySelector('.chat-messages');
+// chat.js
 
-    // Adicionar nova conversa
-    newChatButton.addEventListener('click', function () {
-        const newConversation = document.createElement('div');
-        newConversation.className = 'conversation';
-        newConversation.innerHTML = `
-            <span>Nova Conversa</span>
-            <button class="delete-conversation">🗑️</button>
-        `;
-        document.querySelector('.conversations').appendChild(newConversation);
-        addConversationListeners(newConversation);
-    });
+function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const message = input.value.trim();
 
-    // Selecionar conversa
-    conversations.forEach(conversation => {
-        addConversationListeners(conversation);
-    });
+    if (message !== "") {
+        // Exibir a mensagem do usuário
+        displayMessage(message, 'user');
 
-    // Enviar mensagem
-    sendButton.addEventListener('click', function () {
-        const messageText = chatInput.value.trim();
-        if (messageText) {
-            const messageElement = document.createElement('div');
-            messageElement.className = 'message sent';
-            messageElement.innerHTML = `<p>${messageText}</p>`;
-            chatMessages.appendChild(messageElement);
-            chatInput.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-    });
+        // Limpar o campo de entrada
+        input.value = '';
 
-    // Função para adicionar listeners às conversas
-    function addConversationListeners(conversation) {
-        conversation.addEventListener('click', function () {
-            document.querySelectorAll('.conversation').forEach(c => c.classList.remove('active'));
-            conversation.classList.add('active');
-            document.querySelector('.chat-header h2').textContent = conversation.querySelector('span').textContent;
-        });
-
-        conversation.querySelector('.delete-conversation').addEventListener('click', function (e) {
-            e.stopPropagation();
-            conversation.remove();
-        });
+        // Simular uma resposta do bot (opcional)
+        setTimeout(() => {
+            displayMessage("Esta é uma resposta do bot.", 'bot');
+        }, 1000);
     }
-});
+}
+
+function displayMessage(message, sender) {
+    const chatContainer = document.getElementById('chat-container');
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', sender);
+    messageElement.textContent = message;
+    chatContainer.appendChild(messageElement);
+
+    // Rolagem automática para a última mensagem
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}

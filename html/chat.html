@@ -30,8 +30,11 @@
     <!--Lado esquerdo-->
     <div class="main">
         <h1>Em que posso ajudar?</h1>
+        <div class="chat-container" id="chat-container">
+            <!-- As mensagens serão exibidas aqui -->
+        </div>
         <div class="chat-input">
-            <input type="text" placeholder="Envie a sua mensagem">
+            <input type="text" id="chat-input" placeholder="Envie a sua mensagem">
             <button onclick="sendMessage()">enviar</button>
         </div>
         <div class="options">
@@ -43,12 +46,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
-    <script>
-        function sendMessage() {
-    alert("Mensagem enviada!");
-}
-
-    </script>
+    <script src="../javascript/chat.js"></script>
 </body>
 </html>
